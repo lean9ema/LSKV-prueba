@@ -9,8 +9,8 @@ router.delete('/:id',usersController.delete );
 
 router.get('/login',usersController.login); 
 
-router.get('/register',usersController.register);
-//router.post('/register', upload.single('image'), usersController.store );
+//router.get('/register',usersController.register);
+//router.post('/register', upload.single('image'), usersController.store);
 
 router.get('/:id',usersController.usuario); 
 
