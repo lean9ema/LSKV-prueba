@@ -1,10 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const jsonDB = require('../model/jsonUsersDatabase');
+const jsonDB = require('../model/jsonUsersDataBase');
 const userModel = jsonDB('usersDataBase');
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const usersController = {
     login: function(req,res) {
@@ -15,7 +14,7 @@ const usersController = {
         return res.render("users/register");
     },
 
-	/*store: function(req, res){
+	store: function(req, res){
 		if (req.file){
 			console.log(req.file);
 			let aCrear = req.body;
@@ -28,7 +27,7 @@ const usersController = {
 			const error = new Error('Hubo un error intente nuevamente!')
 			return next(error)
 		}
-	},*/
+	},
 	delete: function(req,res){
 		const user = userModel.find(req.params.id);
 		if (user.image != undefined) fs.unlinkSync(path.join(__dirname,`../../public/images/users/${user.image}`));
