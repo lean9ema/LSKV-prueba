@@ -1,4 +1,4 @@
-/* const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 const jsonDB = require('../model/jsonUsersDatabase');
@@ -15,7 +15,7 @@ const usersController = {
         return res.render("users/register");
     },
 
-	store: function(req, res){
+	/*store: function(req, res){
 		if (req.file){
 			console.log(req.file);
 			let aCrear = req.body;
@@ -28,7 +28,7 @@ const usersController = {
 			const error = new Error('Hubo un error intente nuevamente!')
 			return next(error)
 		}
-	},
+	},*/
 	delete: function(req,res){
 		const user = userModel.find(req.params.id);
 		if (user.image != undefined) fs.unlinkSync(path.join(__dirname,`../../public/images/users/${user.image}`));
@@ -48,4 +48,4 @@ const usersController = {
    
 }
 
-module.exports = usersController; */
+module.exports = usersController; 
